@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" />
+    <!-- custom font -->
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300&display=swap" rel="stylesheet">
+
+    <title>What they tell me</title>
+
+    <!-- styles -->
+    <style>
+      body {
+        font-family: "Dosis", sans-serif;
+        margin: 2em;
+        background-color: #FFF;
+        color: #000;
+        font-size: 1.2em;
+      }
+      h1 {
+        color: #000;
+      }
+      #poem > div {
+        height: 1.2em;
+      }
+      .indent {
+        padding-left: 1em;
+      }
+    </style>
+  </head>
+  <body>
+    <h1>What they tell me</h1>
+    <div id="poem"></div>
+    <script>
+      // set up the lists of words
+      const planets = "".split(","),
+        action = "blocks my path, grabs my ass, stares at my chest, starts to touch himself, catcalls me".split(
+          ","
+        ),
+        words = "calls me a fucking bitch, says my ass is shit anyway, yells that I'm an ugly slut, starts to follow me, starts licking his lips".split(
+          ","
+        );
+      const myaction = "wearing headphones, in my new favourite summer dress, enjoying the sun on my shoulders, riding the tram home from school, walking home after drinks, jogging through the park".split(
+        ","
+      );
+      // set up the counter
+      let counter = 0;
+
+      // a function to pull a random item from a list
+      function getRandomFromList(list) {
+        return list[Math.floor(Math.random() * list.length)];
+      }
+      // add a line to the poem constructed from the lists of words
+      function addLine(indent = false) {
+        // create the line
+        const line = document.createElement("div");
+        if (indent === true) {
+          // indent is true so add an indent class
+          line.classList.add("indent");
+        }
+        const text =
+          "I am " +
+          getRandomFromList(myaction) +
+          " and then some guy " +
+          getRandomFromList(action) +
+          " When I don't respond the way he wants me to he " +
+          getRandomFromList(words);
+        const lineText = document.createTextNode(text);
+        line.appendChild(lineText);
+        // get the poem
+        const poem = document.getElementById("poem");
+        poem.appendChild(line);
+      }
+      // add a blank line to the poem
+      function addBlankLine() {
+        const line = document.createElement("div");
+        const poem = document.getElementById("poem");
+        poem.appendChild(line);
+      }
+      // remove the first line from the poem
+      function removeFirstLine() {
+        const poem = document.getElementById("poem");
+        poem.removeChild(poem.childNodes[0]);
+      }
+      // implement the rules of the poem
+      function processPoem() {
+        counter++;
+        if (counter % 5 === 0) {
+          addBlankLine();
+        } else if (counter % 5 === 2 || counter % 5 === 4) {
+          // if the second or fourth line add the line with an indent
+          addLine(true);
+        } else {
+          addLine();
+        }
+        if (counter > 3) {
+          removeFirstLine();
+        }
+      }
+      window.setInterval(processPoem, 1000);
+    </script>
+
+    <!-- include the Glitch button to show what the webpage is about and
+          to make it easier for folks to view source and remix -->
+    <div class="glitchButton" style="position:fixed;top:20px;right:20px;"></div>
+    <script src="https://button.glitch.me/button.js" defer></script>
+  </body>
+</html>
