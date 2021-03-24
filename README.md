@@ -1,4 +1,4 @@
-A simple digital poem
+What they tell me
 =====================
 
 A simple digital poem that builds each line from three lists created as an example for the Horizons Digital Writing lab.

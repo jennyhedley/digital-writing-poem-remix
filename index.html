@@ -11,7 +11,7 @@
       rel="stylesheet"
     />
 
-    <title>what they tell me</title>
+    <title>What they tell me</title>
 
     <!-- styles -->
     <style>
@@ -31,19 +31,23 @@
       .indent {
         padding-left: 1em;
       }
-      .turtle {
-        color: green;
-      }
     </style>
   </head>
   <body>
-    <h1>what they tell me</h1>
+    <h1>What they tell me</h1>
     <div id="poem"></div>
     <script>
       // set up the lists of words
-      const subjects = "you,I,we,they".split(","),
-        verbs = "run,walk,speak,drift,talk,whisper".split(","),
-        objects = "me,you,her,him,them".split(",");
+      const planets = "".split(","),
+        action = "blocks my path, grabs my ass, stares at my chest, starts to touch himself, catcalls me".split(
+          ","
+        ),
+        words = "calls me a fucking bitch, says my ass is shit anyway, yells that I'm an ugly slut, starts to follow me, starts licking his lips".split(
+          ","
+        );
+      const myaction = "wearing headphones, in my new favourite summer dress, enjoying the sun on my shoulders, riding the tram home from school, walking home after drinks, jogging through the park".split(
+        ","
+      );
       // set up the counter
       let counter = 0;
 
@@ -60,11 +64,12 @@
           line.classList.add("indent");
         }
         const text =
-          getRandomFromList(subjects) +
-          " " +
-          getRandomFromList(verbs) +
-          " to " +
-          getRandomFromList(objects);
+          "I am " +
+          getRandomFromList(myaction) +
+          " and then some guy " +
+          getRandomFromList(action) +
+          " When I don't respond the way he wants me to he " +
+          getRandomFromList(words);
         const lineText = document.createTextNode(text);
         line.appendChild(lineText);
         // get the poem
@@ -93,7 +98,7 @@
         } else {
           addLine();
         }
-        if (counter > 15) {
+        if (counter > 3) {
           removeFirstLine();
         }
       }
