@@ -65,7 +65,7 @@
           getRandomFromList(myaction) +
           " and then some guy " +
           getRandomFromList(action) +
-          " When I don't respond the way he wants me to he " +
+          ". When I don't respond the way he wants me to he " +
           getRandomFromList(words);
         const lineText = document.createTextNode(text);
         line.appendChild(lineText);
@@ -87,7 +87,7 @@
       // implement the rules of the poem
       function processPoem() {
         counter++;
-        if (counter % 5 === 0) {
+        if (counter % 5 === 1) {
           addBlankLine();
         } else if (counter % 5 === 2 || counter % 5 === 4) {
           // if the second or fourth line add the line with an indent
@@ -95,7 +95,7 @@
         } else {
           addLine();
         }
-        if (counter > 3) {
+        if (counter > 1) {
           removeFirstLine();
         }
       }
