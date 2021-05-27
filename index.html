@@ -6,7 +6,10 @@
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <link rel="preconnect" href="https://fonts.gstatic.com" />
     <!-- custom font -->
-    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300&display=swap" rel="stylesheet">
+    <link
+      href="https://fonts.googleapis.com/css2?family=Roboto:wght@300&display=swap"
+      rel="stylesheet"
+    />
 
     <title>What they tell me</title>
 
@@ -15,15 +18,15 @@
       body {
         font-family: "Dosis", sans-serif;
         margin: 2em;
-        background-color: #FFF;
-        color: #000;
+        background-color: #BFCDD9;
+        color: #51608C;
         font-size: 1.2em;
       }
       h1 {
-        color: #000;
+        color: #8C4F2B;
       }
       #poem > div {
-        height: 1.2em;
+        min-height: 1.2em;
       }
       .indent {
         padding-left: 1em;
@@ -35,8 +38,7 @@
     <div id="poem"></div>
     <script>
       // set up the lists of words
-      const planets = "".split(","),
-        action = "blocks my path, grabs my ass, stares at my chest, starts to touch himself, catcalls me".split(
+      const action = "blocks my path, grabs my ass, stares at my chest, starts to touch himself, catcalls me".split(
           ","
         ),
         words = "calls me a fucking bitch, says my ass is shit anyway, yells that I'm an ugly slut, starts to follow me, starts licking his lips".split(
@@ -66,7 +68,8 @@
           " and then some guy " +
           getRandomFromList(action) +
           ". When I don't respond the way he wants me to he " +
-          getRandomFromList(words);
+          getRandomFromList(words) +
+          ".";
         const lineText = document.createTextNode(text);
         line.appendChild(lineText);
         // get the poem
@@ -87,7 +90,7 @@
       // implement the rules of the poem
       function processPoem() {
         counter++;
-        if (counter % 5 === 1) {
+        if (counter % 5 === 0) {
           addBlankLine();
         } else if (counter % 5 === 2 || counter % 5 === 4) {
           // if the second or fourth line add the line with an indent
@@ -95,7 +98,7 @@
         } else {
           addLine();
         }
-        if (counter > 1) {
+        if (counter > 15) {
           removeFirstLine();
         }
       }
