@@ -4,29 +4,30 @@
     <meta charset="utf-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <link rel="preconnect" href="https://fonts.gstatic.com" />
     <!-- custom font -->
+    <link rel="preconnect" href="https://fonts.gstatic.com" />
     <link
-      href="https://fonts.googleapis.com/css2?family=Roboto:wght@300&display=swap"
+      href="https://fonts.googleapis.com/css2?family=Dosis:wght@200&display=swap"
       rel="stylesheet"
     />
+    <!-- end custom font -->
 
-    <title>What they tell me</title>
+    <title>We walk to you</title>
 
     <!-- styles -->
     <style>
       body {
         font-family: "Dosis", sans-serif;
         margin: 2em;
-        background-color: #BFCDD9;
-        color: #51608C;
+        background-color: #000;
+        color: #fff;
         font-size: 1.2em;
       }
       h1 {
-        color: #8C4F2B;
+        color: #fff;
       }
       #poem > div {
-        min-height: 1.2em;
+        height: 1.2em;
       }
       .indent {
         padding-left: 1em;
@@ -34,19 +35,13 @@
     </style>
   </head>
   <body>
-    <h1>What they tell me</h1>
+    <h1>We walk to you</h1>
     <div id="poem"></div>
     <script>
       // set up the lists of words
-      const action = "blocks my path, grabs my ass, stares at my chest, starts to touch himself, catcalls me, pulls his dick out".split(
-          ","
-        ),
-        words = "calls me a fucking bitch, says my ass is shit anyway, calls me an ugly slut, starts to follow me, licks his lips".split(
-          ","
-        );
-      const myaction = "wearing headphones, in my new summer dress, enjoying the sun on my shoulders, riding the tram home, walking home after drinks, jogging through the park, on the train, in the library".split(
-        ","
-      );
+      const subjects = "you,I,we,they".split(","),
+        verbs = "run,walk,speak,drift,talk,whisper".split(","),
+        objects = "me,you,her,him,them".split(",");
       // set up the counter
       let counter = 0;
 
@@ -63,13 +58,11 @@
           line.classList.add("indent");
         }
         const text =
-          "I am " +
-          getRandomFromList(myaction) +
-          " and then some guy " +
-          getRandomFromList(action) +
-          ". When I don't respond the way he wants he " +
-          getRandomFromList(words) +
-          ".";
+          getRandomFromList(subjects) +
+          " " +
+          getRandomFromList(verbs) +
+          " to " +
+          getRandomFromList(objects);
         const lineText = document.createTextNode(text);
         line.appendChild(lineText);
         // get the poem
@@ -107,7 +100,10 @@
 
     <!-- include the Glitch button to show what the webpage is about and
           to make it easier for folks to view source and remix -->
-    <div class="glitchButton" style="position:fixed;top:20px;right:20px;"></div>
+    <div
+      class="glitchButton"
+      style="position: fixed; top: 20px; right: 20px"
+    ></div>
     <script src="https://button.glitch.me/button.js" defer></script>
   </body>
 </html>
